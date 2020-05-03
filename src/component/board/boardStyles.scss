@@ -1,0 +1,28 @@
+.board {
+    text-align: center;
+
+    h1 {
+        padding: 30px;
+        font-size: 50px;
+        font-family: fantasy;
+    }
+
+    button {
+        padding: 20px;
+        border: 1px solid rgb(63, 50, 148);
+        outline: none;
+        border-radius: 10px;
+        margin: 20px 0;
+        background: rgb(134,117,247);
+        color: rgb(63, 50, 148);
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    button:hover {
+        background-color: slateblue;
+        color: white;
+        border: 1px solid rgb(63, 50, 148);
+    }
+
+}
