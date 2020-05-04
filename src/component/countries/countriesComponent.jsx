@@ -2,6 +2,7 @@ import React from 'react'
 import './countriesStyles.scss'
 
 const Countries =({countries})=>{
+    // console.log("yup")
     return(
         <div className='countries'>
             <div className='cases'>
@@ -20,6 +21,11 @@ const Countries =({countries})=>{
                     <h4>Total Recovered: {countries.TotalRecovered}</h4>
                 </div>
             </div>          
+            {/* {
+                countries.map(country =>(
+                    <div>{countries.Country}</div>
+                ))
+            } */}
         </div>
     )
 }
