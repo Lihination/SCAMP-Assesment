@@ -1,8 +1,10 @@
 import React from 'react'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import Countries from '../countries/countriesComponent'
 import './globalStyles.scss'
-import Testing from "./Testing"
+// import Testing from "../countries/Testing"
 
 const Global = ()=>{
     const [globalStatistics, setglobalStatistics] = useState([])
@@ -12,20 +14,22 @@ const Global = ()=>{
         const fetchData = async ()=>{
             const response = await axios.get(globalUrl)
             setglobalStatistics(response.data.Countries);
-            console.log(response.data.Countries[0])
+            // console.log(response.data.Countries[0])
     };
     fetchData()
        
     }, []);
-    console.log(globalStatistics.Countries)
-    const mapped =  globalStatistics.map(test=> <Testing test={test}/>)
+    const mappedCountries =  globalStatistics.map(countries=> <Countries countries={countries} key={countries.CountryCode}/>)
     return(
         <div>
+            <div className='link' >
             <h1>Global Statistics</h1>
+            <Link to='/'><button>home</button>
+            </Link>
+            </div>
             <div className='global'>
                  <div>
-                    {/* <h1>{globalStatistics.countries && globalStatistics.countries.map()}</h1> */}
-                    {mapped}
+                    {mappedCountries}
                 </div>
                 
             </div>
