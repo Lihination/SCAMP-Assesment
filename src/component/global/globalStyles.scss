@@ -4,17 +4,59 @@
     flex-wrap: wrap;
 }
 
-.link {
-    display: flex;
-    justify-content: space-between;
-    margin: 5px 5px;
+// .link {
+//     display: flex;
+//     justify-content: space-between;
+//     margin: 5px 5px;
+// }
+//  button{ 
+//      background-color: rgb(123, 105, 241);
+//      font-size: 15px;
+//      padding: 10px;
+//      border: 1px solid rgb(67, 53, 163);
+//      border-radius: 10px;
+//      text-transform: uppercase; 
+//  }
+.countries {
+    display: grid;
+    grid-template-columns: 'repeat(3 1fr)';
 }
- button{ 
-     background-color: rgb(123, 105, 241);
-     font-size: 15px;
-     padding: 10px;
-     border: 1px solid rgb(67, 53, 163);
-     border-radius: 10px;
-     text-transform: uppercase; 
- }
+
+.cases {
+    border-radius: 5px;
+    box-shadow: 2px  1px 1px 1px grey;
+    padding: 20px;
+    margin-bottom: 15px;
+    // display: flex;
+    // justify-content: space-evenly;
+
+    .confirmed {
+        background: rgb(247, 247, 89);
+        border-radius: 5px;
+        text-align: center;
+        width: 13em;
+        font-size: 15px;
+    
+    }
+    .deaths {
+        background-color: rgb(236, 83, 83);
+        border-radius: 5px;
+        text-align: center;
+        width: 13em;
+        font-size: 15px;
+    }
+    .recovered {
+        background-color: rgb(70, 233, 70);
+        border-radius: 5px;
+        text-align: center;
+        width: 13em;
+        font-size: 15px;
+    }
+}
+
+.cases:hover {
+    cursor: pointer;
+    transform: scale3d(1.1);
+    box-shadow: 2px 5px 3px 3px grey;
+}
  

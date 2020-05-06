@@ -5,48 +5,49 @@ import axios from 'axios';
 import Navbar from './component/navbar/navbarComponent'
 import Board from './component/board/boardComponent'
 import GlobalStatistics from './component/global/globalComponent'
-import Countries from './component/countries/countriesComponent'
-
 
 
 function App() {
 
-  const [globalStatistics, setglobalStatistics] = useState([])
+  const [globalStatistics, setglobalStatistics] = useState([]);
+  const [searchCountry, setSearchCountry] = useState([]);
+  const [searchText, setSearchText] = useState('');
+  
     const globalUrl = 'https://api.covid19api.com/summary'
 
     useEffect(()=>{
         const fetchData = async ()=>{
             const response = await axios.get(globalUrl)
             setglobalStatistics(response.data.Countries);
-            // console.log(response.data.Countries[0])
+            setSearchCountry(response.data.Countries);
+            // console.log(response.data.Countries);
     };
     fetchData()
+    // console.log(globalStatistics);
+
        
     }, []);
-    const mappedCountries =  globalStatistics.map(countries=> <Countries countries={countries} key={countries.Slug}/>)
 
-const [searchCountry, setSearchCountry] = useState('');
-const [countryResults, setCountryResults] = useState([]);
-
-// const handleChange = e =>{
-//   setSearchCountry(e.target.value);
-// };
-
-// useEffect(()=>{
-//   const result = Countries.filter(country => country.toLowerCase().includes(searchCountry)
-//   );
-//   setCountryResults(result)
-// },[countryResults]);
-
-
+const handleChange = e =>{
+  // console.log(e.target.value)
+  const searchText = e.target.value.trim().toLowerCase();
+  // console.log(searchText.length);
+  setSearchText(searchText);
+  if(searchText.length <= 0) {
+    setSearchCountry(globalStatistics);
+    return;
+  }
+  const filteredCountries = globalStatistics.filter(value => value.Country.toLowerCase().includes(searchText));
+  setSearchCountry(filteredCountries);
+  // console.log(filteredCountries);
+};
   return (
     <div className="App">
-      <Navbar/>
+      <Navbar searchText={searchText} handleChange={handleChange}/>
       <Switch>
-        <Route path='/global' component={GlobalStatistics} />
-          <Board/>
+      <Route path='/global' render={(props) => <GlobalStatistics {...props} searchCountry={searchCountry} />} />
+        <Board/>
       </Switch>
-      {mappedCountries}
     </div>
   );
 }

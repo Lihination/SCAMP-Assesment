@@ -18,14 +18,14 @@
         height: 30px;
         border: none;
         background-color: rgb(203, 197, 245);
-        border-top-left-radius: 12px;
-        border-bottom-left-radius: 12px;
+        border-radius: 15px;
     }
     button {
         padding: 10px;
-        height: 50px;
-        border-bottom-right-radius: 12px;
-        border-top-right-radius: 12px;
+        height: 40px;
+        // border-bottom-right-radius: 12px;
+        // border-top-right-radius: 12px;
+        
         outline: none;
         border: 1px solid rgb(98, 84, 187);
         background-color:rgb(103, 86, 211) ;

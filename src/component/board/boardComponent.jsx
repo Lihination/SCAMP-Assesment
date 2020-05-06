@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import GlobalStatistics from '../global/globalComponent'
 import './boardStyles.scss'
 
 const Board =({getStatistics})=>{
